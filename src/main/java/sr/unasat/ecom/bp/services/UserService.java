@@ -32,4 +32,8 @@ public class UserService {
     public List<User> getAllUsers() {
         return repository.getAllUsers();
     }
+
+    public List<User> getUserWithOrdersAndProducts(int userId) {
+        return repository.getUserWithOrdersAndProducts(userId);
+    }
 }

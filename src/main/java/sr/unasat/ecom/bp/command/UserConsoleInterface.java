@@ -23,7 +23,8 @@ public class UserConsoleInterface {
             System.out.println("3. Update User");
             System.out.println("4. Delete User");
             System.out.println("5. View All Users");
-            System.out.println("6. Exit");
+            System.out.println("6. View All Orders with Products (New Option)");
+            System.out.println("7. Exit");
             System.out.print("Enter your choice: ");
 
             try {
@@ -36,7 +37,7 @@ public class UserConsoleInterface {
                 choice = 0;
             }
 
-        } while (choice != 6);
+        } while (choice != 7);
 
         System.out.println("Exiting...");
     }

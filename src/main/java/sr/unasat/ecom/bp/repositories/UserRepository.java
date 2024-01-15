@@ -60,4 +60,13 @@ public class UserRepository {
         TypedQuery<User> query = entityManager.createQuery("SELECT u FROM User u", User.class);
         return query.getResultList();
     }
+
+    public List<User> getUserWithOrdersAndProducts(int userId) {
+        TypedQuery<User> query = entityManager.createQuery(
+                "SELECT u FROM User u LEFT JOIN FETCH u.orders o LEFT JOIN FETCH o.products WHERE u.id = :userId",
+                User.class
+        );
+        query.setParameter("userId", userId);
+        return query.getResultList();
+    }
 }
