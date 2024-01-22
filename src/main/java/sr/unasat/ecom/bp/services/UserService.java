@@ -41,4 +41,8 @@ public class UserService {
     public List<Order> getOrdersWithProductsForUser(int userId) {
         return repository.getOrdersWithProductsForUser(userId);
     }
+
+    public Double getTotalPriceForOrder(int orderId) {
+        return repository.getTotalPriceForOrder(orderId);
+    }
 }

@@ -1,6 +1,7 @@
 package sr.unasat.ecom.bp.repositories;
 
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.Query;
 import jakarta.persistence.TypedQuery;
 import sr.unasat.ecom.bp.entities.Order;
 import sr.unasat.ecom.bp.entities.User;
@@ -80,4 +81,27 @@ public class UserRepository {
         return query.getResultList();
     }
 
+    public Double getTotalPriceForOrder(int orderId) {
+        try {
+            entityManager.getTransaction().begin();
+
+            // The JPQL query to calculate the total price for one specific order
+            String jpql = "SELECT SUM(p.price) FROM Order o JOIN o.products p WHERE o.id = :orderId";
+
+            // Create a typed query using the EntityManager
+            TypedQuery<Double> query = entityManager.createQuery(jpql, Double.class);
+            query.setParameter("orderId", orderId);
+
+            // Execute the query and get the result
+            Double totalPrice = query.getSingleResult();
+
+            entityManager.getTransaction().commit();
+
+            return totalPrice;
+        } catch (Exception e) {
+            e.printStackTrace();
+            entityManager.getTransaction().rollback();
+            return null;
+        }
+    }
 }

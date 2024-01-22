@@ -23,7 +23,7 @@ public class MainMenu {
         int choice;
 
         do {
-            System.out.println("==== Main Menu ====");
+//            System.out.println("==== Main Menu ====");
             System.out.println("1. Manage Users");
             System.out.println("2. Manage Products");
             System.out.println("3. Exit");
