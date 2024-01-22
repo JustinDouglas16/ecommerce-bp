@@ -1,6 +1,7 @@
 package sr.unasat.ecom.bp.services;
 
 import sr.unasat.ecom.bp.config.JPAConfiguration;
+import sr.unasat.ecom.bp.entities.Order;
 import sr.unasat.ecom.bp.entities.User;
 import sr.unasat.ecom.bp.repositories.UserRepository;
 
@@ -35,5 +36,9 @@ public class UserService {
 
     public List<User> getUserWithOrdersAndProducts(int userId) {
         return repository.getUserWithOrdersAndProducts(userId);
+    }
+
+    public List<Order> getOrdersWithProductsForUser(int userId) {
+        return repository.getOrdersWithProductsForUser(userId);
     }
 }

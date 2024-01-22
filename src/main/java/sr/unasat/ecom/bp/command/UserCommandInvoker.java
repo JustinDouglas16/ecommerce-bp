@@ -17,6 +17,7 @@ public class UserCommandInvoker {
         commands.put(4, new DeleteUserCommand(userService, scanner));
         commands.put(5, new ViewAllUsersCommand(userService));
         commands.put(6, new ViewAllOrdersWithProductsCommand(userService));
+        commands.put(7, new ViewOrdersForUserCommand(userService, scanner));
     }
 
     public void executeCommand(int choice) {
@@ -24,7 +25,7 @@ public class UserCommandInvoker {
         if (command != null) {
             command.execute();
         } else {
-            System.out.println("Invalid choice. Please choose a number between 1 and 6.");
+            System.out.println("Invalid choice. Please choose a number between 1 and 8.");
         }
     }
 }

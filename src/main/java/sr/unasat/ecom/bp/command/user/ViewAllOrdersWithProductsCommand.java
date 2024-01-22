@@ -13,7 +13,7 @@ public class ViewAllOrdersWithProductsCommand implements Command {
     @Override
     public void execute() {
         userService.getAllUsers().forEach(user -> {
-            System.out.println("User ID: " + user.getId());
+            System.out.println("User with the order: " + user.getFirstname() + " " + user.getLastname());
             user.getOrders().forEach(order -> {
                 System.out.println("Order ID: " + order.getId());
                 order.getProducts().forEach(product ->

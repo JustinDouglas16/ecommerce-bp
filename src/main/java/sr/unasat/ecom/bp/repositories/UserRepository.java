@@ -2,6 +2,7 @@ package sr.unasat.ecom.bp.repositories;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
+import sr.unasat.ecom.bp.entities.Order;
 import sr.unasat.ecom.bp.entities.User;
 
 import java.util.List;
@@ -69,4 +70,14 @@ public class UserRepository {
         query.setParameter("userId", userId);
         return query.getResultList();
     }
+
+    public List<Order> getOrdersWithProductsForUser(int userId) {
+        TypedQuery<Order> query = entityManager.createQuery(
+                "SELECT o FROM Order o LEFT JOIN FETCH o.products WHERE o.user.id = :userId",
+                Order.class
+        );
+        query.setParameter("userId", userId);
+        return query.getResultList();
+    }
+
 }
