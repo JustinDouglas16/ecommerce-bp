@@ -104,4 +104,28 @@ public class UserRepository {
             return null;
         }
     }
+
+    public Double getTotalPriceForAllOrdersOfUser(int userId) {
+        try {
+            entityManager.getTransaction().begin();
+
+            // The JPQL query to calculate the total price for all orders of one specific user
+            String jpql = "SELECT SUM(p.price) FROM User u JOIN u.orders o JOIN o.products p WHERE u.id = :userId";
+
+            // Create a typed query using the EntityManager
+            TypedQuery<Double> query = entityManager.createQuery(jpql, Double.class);
+            query.setParameter("userId", userId);
+
+            // Execute the query and get the result
+            Double totalPrice = query.getSingleResult();
+
+            entityManager.getTransaction().commit();
+
+            return totalPrice;
+        } catch (Exception e) {
+            e.printStackTrace();
+            entityManager.getTransaction().rollback();
+            return null;
+        }
+    }
 }

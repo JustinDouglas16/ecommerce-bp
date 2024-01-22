@@ -26,7 +26,8 @@ public class UserConsoleInterface {
             System.out.println("6. View All Orders with Products (New Option)");
             System.out.println("7. View Orders for a Specific User (New Option)");
             System.out.println("8. View Total Price for a Specific Order (New Option)");
-            System.out.println("9. Exit");
+            System.out.println("9. View Total Price for All Orders of a Specific User (New Option)");
+            System.out.println("10. Exit");
             System.out.print("Enter your choice: ");
 
             try {
@@ -39,7 +40,7 @@ public class UserConsoleInterface {
                 choice = 0;
             }
 
-        } while (choice != 9);
+        } while (choice != 10);
 
         System.out.println("Exiting...");
     }

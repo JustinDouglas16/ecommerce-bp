@@ -19,6 +19,7 @@ public class UserCommandInvoker {
         commands.put(6, new ViewAllOrdersWithProductsCommand(userService));
         commands.put(7, new ViewOrdersForUserCommand(userService, scanner));
         commands.put(8, new ViewTotalPriceForOrderCommand(userService, scanner));
+        commands.put(9, new ViewTotalPriceForAllOrdersCommand(userService, scanner));
     }
 
     public void executeCommand(int choice) {

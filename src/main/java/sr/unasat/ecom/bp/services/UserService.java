@@ -45,4 +45,8 @@ public class UserService {
     public Double getTotalPriceForOrder(int orderId) {
         return repository.getTotalPriceForOrder(orderId);
     }
+
+    public Double getTotalPriceForAllOrdersOfUser(int userId) {
+        return repository.getTotalPriceForAllOrdersOfUser(userId);
+    }
 }
