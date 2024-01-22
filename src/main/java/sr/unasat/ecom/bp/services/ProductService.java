@@ -32,4 +32,34 @@ public class ProductService {
     public List<Product> getAllProducts() {
         return repository.getAllProducts();
     }
+
+    // Method to get all products in ascending order based on the product name
+    public List<Product> getAllProductsAsc() {
+        return repository.getAllProductsAsc();
+    }
+
+    // Method to get all products in descending order based on the product name
+    public List<Product> getAllProductsDesc() {
+        return repository.getAllProductsDesc();
+    }
+
+    // Method to get all products in ascending order based on the product price
+    public List<Product> getAllProductsAscByPrice() {
+        return repository.getAllProductsAscByPrice();
+    }
+
+    // Method to get all products in descending order based on the product price
+    public List<Product> getAllProductsDescByPrice() {
+        return repository.getAllProductsDescByPrice();
+    }
+
+    // Method to get all products in ascending order based on the product quantity
+    public List<Product> getAllProductsAscByQuantity() {
+        return repository.getAllProductsAscByQuantity();
+    }
+
+    // Method to get all products in descending order based on the product quantity
+    public List<Product> getAllProductsDescByQuantity() {
+        return repository.getAllProductsDescByQuantity();
+    }
 }

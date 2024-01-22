@@ -23,7 +23,11 @@ public class ProductConsoleInterface {
             System.out.println("3. Update Product");
             System.out.println("4. Delete Product");
             System.out.println("5. View All Products");
-            System.out.println("6. Exit");
+            System.out.println("6. View All Products in Ascending Order by Price");
+            System.out.println("7. View All Products in Descending Order by Price");
+            System.out.println("8. View All Products in Ascending Order by Quantity");
+            System.out.println("9. View All Products in Descending Order by Quantity");
+            System.out.println("10. Exit");
             System.out.print("Enter your choice: ");
 
             try {
@@ -36,7 +40,7 @@ public class ProductConsoleInterface {
                 choice = 0;
             }
 
-        } while (choice != 6);
+        } while (choice != 10);
 
         System.out.println("Exiting...");
     }

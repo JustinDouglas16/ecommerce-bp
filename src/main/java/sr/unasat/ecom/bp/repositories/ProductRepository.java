@@ -60,4 +60,40 @@ public class ProductRepository {
         TypedQuery<Product> query = entityManager.createQuery("SELECT p FROM Product p", Product.class);
         return query.getResultList();
     }
+
+    // Method to get all products in ascending order based on the product name
+    public List<Product> getAllProductsAsc() {
+        TypedQuery<Product> query = entityManager.createQuery("SELECT p FROM Product p ORDER BY p.name ASC", Product.class);
+        return query.getResultList();
+    }
+
+    // Method to get all products in descending order based on the product name
+    public List<Product> getAllProductsDesc() {
+        TypedQuery<Product> query = entityManager.createQuery("SELECT p FROM Product p ORDER BY p.name DESC", Product.class);
+        return query.getResultList();
+    }
+
+    // Method to get all products in ascending order based on the product price
+    public List<Product> getAllProductsAscByPrice() {
+        TypedQuery<Product> query = entityManager.createQuery("SELECT p FROM Product p ORDER BY p.price ASC", Product.class);
+        return query.getResultList();
+    }
+
+    // Method to get all products in descending order based on the product price
+    public List<Product> getAllProductsDescByPrice() {
+        TypedQuery<Product> query = entityManager.createQuery("SELECT p FROM Product p ORDER BY p.price DESC", Product.class);
+        return query.getResultList();
+    }
+
+    // Method to get all products in ascending order based on the product quantity
+    public List<Product> getAllProductsAscByQuantity() {
+        TypedQuery<Product> query = entityManager.createQuery("SELECT p FROM Product p ORDER BY p.quantity ASC", Product.class);
+        return query.getResultList();
+    }
+
+    // Method to get all products in descending order based on the product quantity
+    public List<Product> getAllProductsDescByQuantity() {
+        TypedQuery<Product> query = entityManager.createQuery("SELECT p FROM Product p ORDER BY p.quantity DESC", Product.class);
+        return query.getResultList();
+    }
 }

@@ -16,6 +16,10 @@ public class ProductCommandInvoker {
         commands.put(3, new UpdateProductCommand(productService, scanner));
         commands.put(4, new DeleteProductCommand(productService, scanner));
         commands.put(5, new ViewAllProductsCommand(productService));
+        commands.put(6, new ViewAllProductsAscByPriceCommand(productService));
+        commands.put(7, new ViewAllProductsDescByPriceCommand(productService));
+        commands.put(8, new ViewAllProductsAscByQuantityCommand(productService));
+        commands.put(9, new ViewAllProductsDescByQuantityCommand(productService));
     }
 
     public void executeCommand(int choice) {
