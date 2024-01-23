@@ -6,22 +6,35 @@ import jakarta.persistence.Persistence;
 
 public class JPAConfiguration {
     private static final String PERSISTENCE_UNIT_NAME = "my-persistence";
-    private static EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
-    private static EntityManager entityManager = factory.createEntityManager();
+    private static EntityManagerFactory factory;
+    private static EntityManager entityManager;
 
-    public static EntityManagerFactory getEntityManagerFactory() {
+    // Private constructor to prevent instantiation
+    private JPAConfiguration() {
+    }
+
+    // Static method to get the instance of EntityManagerFactory
+    public static synchronized EntityManagerFactory getEntityManagerFactory() {
+        if (factory == null) {
+            factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+        }
         return factory;
     }
 
-    public static EntityManager getEntityManager() {
+    // Static method to get the instance of EntityManager
+    public static synchronized EntityManager getEntityManager() {
+        if (entityManager == null || !entityManager.isOpen()) {
+            entityManager = getEntityManagerFactory().createEntityManager();
+        }
         return entityManager;
     }
 
-    public static void shutdown() {
-        if (entityManager != null) {
+    // Static method to shut down the EntityManagerFactory
+    public static synchronized void shutdown() {
+        if (entityManager != null && entityManager.isOpen()) {
             entityManager.close();
         }
-        if (factory != null) {
+        if (factory != null && factory.isOpen()) {
             factory.close();
         }
     }
